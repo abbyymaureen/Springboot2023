@@ -13,5 +13,3 @@ public class HelloController {
         return "index";
     }
 }
-
-// Test that this is correct
