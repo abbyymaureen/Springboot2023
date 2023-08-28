@@ -21,8 +21,8 @@ public class LoginServiceImpl implements LoginService {
      * @param loginForm - Data containing user login information, such as username and password.
      * @return true if data exists and matches what's on record, false otherwise
      */
-    @Override
-    public boolean validateUser(LoginForm loginForm) {
+//    @Override
+    public boolean validateUser(LoginForm loginForm, String password) {
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> users = loginRepo.findByUsernameIgnoreCase(loginForm.getUsername());
 
@@ -38,5 +38,10 @@ public class LoginServiceImpl implements LoginService {
 
         // User exists, and the provided password matches the hashed password in the database.
         return true;
+    }
+
+    @Override
+    public boolean validateUser(String username, String password) {
+        return false;
     }
 }
