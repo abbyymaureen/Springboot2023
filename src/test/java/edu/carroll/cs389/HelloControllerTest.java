@@ -18,8 +18,8 @@ public class HelloControllerTest {
 
     @Test
     public void indexTest() throws Exception {
-        mockMvc.perform(get("/hello")).andDo(print())
+        mockMvc.perform(get("/?name=random")).andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Hello from Spring Boot!")));
+                .andExpect(content().string(equalTo("<!DOCTYPE HTML>\n<html>\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n    <title>Serving HTML Content</title>\n</head>\n<body>\n<p>Hello, random!</p>\n</body>\n</html>")));
     }
 }
